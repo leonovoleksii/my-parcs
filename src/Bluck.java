@@ -13,14 +13,18 @@ public class Bluck {
         ArrayList<Node> nodes = fromFile(curtask.findFile("input"));
         long x = 0;
         AMInfo info = new AMInfo(curtask, null);
+        LinkedList<channel> channels = new LinkedList<>();
         for(Node n: nodes) {
             point p = info.createPoint();
             channel c = p.createChannel();
             p.execute("PrimeSum");
             c.write(n);
-            x += c.readLong();
+            channels.add(c);
         }
         System.out.println("Waiting for result...");
+        for (var c : channels) {
+            x += c.readLong();
+        }
         System.out.println("Result: " + x);
         curtask.end();
     }
