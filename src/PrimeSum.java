@@ -19,8 +19,8 @@ public class PrimeSum implements AM {
 
         long sum = 0L;
         int start = n.l;
-        while (start % (2 * NODES) != n.div) start++;
-        for (int i = start; i <= n.r; i += 2 * NODES) {
+        while (start % NODES != n.div) start++;
+        for (int i = start; i <= n.r; i += NODES) {
             if (isPrime(i)) sum += i;
         }
         System.out.println("[" + n.l + " " + n.r + "] Build finished.");

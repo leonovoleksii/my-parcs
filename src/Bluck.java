@@ -1,5 +1,4 @@
-import java.util.ArrayList;
-import java.util.Scanner;
+import java.util.*;
 import java.io.File;
 
 import parcs.*;
@@ -38,7 +37,7 @@ public class Bluck {
         System.out.println(r);
         ArrayList<Node> res = new ArrayList<>();
         for (int i = 0; i < NODES; i++) {
-            res.add(new Node(l, r, 2 * i + 1));
+            res.add(new Node(l, r, i));
         }
         return res;
     }
